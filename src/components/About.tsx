@@ -4,12 +4,12 @@ import { CodeBlock, zenburn } from 'react-code-blocks';
 const About = () => {
   const [age, setAge] = useState(0);
   const requestRef = useRef<number>();
-  const birthDate = useRef(new Date('2000-04-11'));
 
   useEffect(() => {
     const animate = () => {
       const now = new Date();
-      const diff = now.getTime() - birthDate.current.getTime();
+      const birthDate = new Date('2000-04-11');
+      const diff = now.getTime() - birthDate.getTime();
       const newAge = diff / (1000 * 60 * 60 * 24 * 365.25);
       setAge(newAge);
       requestRef.current = requestAnimationFrame(animate);
